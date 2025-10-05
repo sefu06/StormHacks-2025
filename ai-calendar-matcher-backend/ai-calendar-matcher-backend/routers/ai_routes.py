@@ -2,7 +2,7 @@
 from typing import List, Literal
 from fastapi import APIRouter
 from pydantic import BaseModel, Field
-from gemini_service import generate_suggestions
+from services.gemini_service import generate_suggestions
 
 router = APIRouter(prefix="/ai", tags=["ai"])
 
