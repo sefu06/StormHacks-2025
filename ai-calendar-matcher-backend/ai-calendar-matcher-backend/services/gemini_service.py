@@ -1,13 +1,12 @@
-# gemini_service.py
 import os, json
 from typing import List
 from dotenv import load_dotenv
 import google.generativeai as genai
 
-load_dotenv()  # reads .env in project root
+load_dotenv()
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
-MODEL = "gemini-1.5-flash"  # good price/perf for hackathons
+MODEL = "gemini-1.5-flash"
 
 SCHEMA = {
   "type":"array",
