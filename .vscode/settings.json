@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./ai-calendar-matcher-backend/ai-calendar-matcher-backend/services"
+    ]
+}
