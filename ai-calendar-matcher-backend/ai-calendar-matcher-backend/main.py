@@ -17,7 +17,18 @@ CLIENT_SECRET = os.getenv("GOOGLE_CLIENT_SECRET")
 REDIRECT_URI = os.getenv("GOOGLE_REDIRECT_URI")
 
 app = FastAPI(title="Calendar Availability API")
+from fastapi.middleware.cors import CORSMiddleware
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:5173", "http://127.0.0.1:5173",
+        "http://localhost:3000", "http://127.0.0.1:3000",
+    ],
+    allow_methods=["*"],        # e.g. GET, POST, OPTIONS, ...
+    allow_headers=["*"],        # e.g. Content-Type, Authorization
+    allow_credentials=True,     # set True if you’ll use cookies/session
+)
 
 # ------------------------
 # 1. LOGIN / AUTH
@@ -194,7 +205,7 @@ from dotenv import load_dotenv
 import os
 
 load_dotenv()
-
+ 
 CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID")
 CLIENT_SECRET = os.getenv("GOOGLE_CLIENT_SECRET")
 
