@@ -181,3 +181,14 @@ def user_free_time(
     return {
         "free_time": [{"start": s.isoformat(), "end": e.isoformat()} for s, e in free]
     }
+
+
+
+@app.get("/env-health")
+def env_health():
+    return {
+        "has_gemini_key": bool(os.getenv("GEMINI_API_KEY")),
+        "has_google_client": bool(os.getenv("GOOGLE_CLIENT_ID")),
+        "redirect_uri": os.getenv("GOOGLE_REDIRECT_URI"),
+    }
+
